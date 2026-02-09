@@ -1,85 +1,122 @@
-/* Estilos gerais */
+/* Estilos voltados exclusivamente para Mobile */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Cabeçalho */
-  .header {
-    background-color: #288cb4; /* Cor de fundo do cabeçalho */
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-  }
-  
-  /* Logo */
-  .logo {
-    display: block;
-    margin: 0 auto;
-    height: 100px; /* Ajuste a altura conforme necessário */
-  }
-  
-  /* Conteúdo principal */
-  .main-content {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  /* Botões de módulo */
-  .module-button {
-    background-color: #003366;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    margin: 10px;
-    cursor: pointer;
-    font-size: 18px;
-  }
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
 
-  /* Rodapé */
-  .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  /* Estilos para a tabela */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  tr:hover {
-    background-color: #f5f5f5;
-  }
-  
-  /* Estilos para o input e o botão */
-  input#searchInput {
-    padding: 10px;
-    margin-right: 15px;
-    margin-left: 150px;
-    width: 300px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    cursor: pointer;
-  }
-  
+/* Cabeçalho */
+.header {
+  background-color: #288cb4;
+  color: white;
+  padding: 15px 10px;
+  text-align: center;
+}
+
+/* Logo - Ajustada para telas menores */
+.logo {
+  display: block;
+  margin: 0 auto;
+  height: 80px; /* Reduzido levemente para mobile */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Conteúdo principal */
+.main-content {
+  text-align: center;
+  padding: 20px; /* Reduzido o padding lateral */
+}
+
+/* Botões de módulo - Estilo "Block" para facilitar o toque */
+.module-button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 18px 20px; /* Padding maior para área de toque */
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 18px;
+  width: 100%; /* Botão ocupa a largura total no mobile */
+  border-radius: 8px;
+  display: block;
+}
+
+/* Estilos para o input e o botão de busca */
+input#searchInput {
+  padding: 12px;
+  margin: 10px 0;
+  width: 100%; /* Largura total */
+  box-sizing: border-box; /* Garante que o padding não quebre a largura */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 12px 20px;
+  cursor: pointer;
+  width: 100%; /* Botão de busca também em largura total */
+  background-color: #288cb4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Tabela Responsiva - Transforma linhas em "cards" */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  display: block; /* Permite scroll ou empilhamento */
+}
+
+thead {
+  display: none; /* Esconde o cabeçalho da tabela no mobile */
+}
+
+tr {
+  display: block;
+  margin-bottom: 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+td {
+  display: block;
+  text-align: right;
+  padding: 8px 5px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  font-size: 14px;
+}
+
+td:last-child {
+  border-bottom: none;
+}
+
+/* Adiciona o rótulo antes do dado da tabela */
+td::before {
+  content: attr(data-label); /* Exige que você adicione data-label no HTML */
+  position: absolute;
+  left: 10px;
+  width: 45%;
+  text-align: left;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Rodapé */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  position: relative; /* Mudado de absolute para relative para não sobrepor conteúdo */
+  margin-top: 30px;
+  width: 100%;
+}
