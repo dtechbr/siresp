@@ -2,79 +2,121 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Pesquisa SIRESP</title>
     <style>
-        /* Adicionando o CSS para o menu */
+        /* Reset b√°sico para mobile */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
         }
+
+        /* Menu de Navega√ß√£o Mobile */
         #nav-container {
             background: rgb(50, 54, 57);
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 15px;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center; /* Centralizado no mobile */
         }
+
         #nav-container ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
+            width: 100%;
+            justify-content: center;
         }
-        #nav-container ul li {
-            margin: 0 15px;
-            position: relative;
-        }
+
         #nav-container ul li a {
             text-decoration: none;
             color: #f1f1f1;
             font-weight: bold;
-            padding: 8px 12px;
-            transition: background 0.3s;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            display: block; /* Aumenta a √°rea de clique */
         }
-        #nav-container ul li a:hover {
-            background: #444;
-            border-radius: 4px;
-        }
-        header.header {
+
+        /* Conte√∫do Principal */
+        .container {
+            padding: 20px;
             text-align: center;
+        }
+
+        header.header {
+            margin-top: 10px;
             margin-bottom: 20px;
         }
+
         header img.logo {
-            width: 100px; /* Tamanho ajust·vel para o logo */
+            width: 120px; /* Levemente maior para destaque no mobile */
+            height: auto;
         }
+
+        /* Inputs e Bot√µes 100% de largura */
         input#searchInput {
-            margin-top: 20px;
-            padding: 10px;
-            width: 300px;
-            font-size: 1em;
+            margin-top: 10px;
+            padding: 15px;
+            width: 100%; /* Ocupa toda a tela */
+            font-size: 16px; /* Evita zoom autom√°tico no iOS */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: block;
         }
+
         button {
-            padding: 10px;
-            font-size: 1em;
+            margin-top: 15px;
+            padding: 15px;
+            width: 100%; /* Bot√£o largo para o polegar */
+            font-size: 1.1em;
+            font-weight: bold;
             cursor: pointer;
+            background-color: #288cb4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        button:active {
+            background-color: #1e6b8a; /* Feedback visual ao tocar */
+        }
+
+        /* √Årea de resultados */
+        #results {
+            margin-top: 20px;
+            text-align: left;
+            word-wrap: break-word; /* Evita que textos longos quebrem o layout */
         }
     </style>
 </head>
 <body>
-    <!-- Menu de NavegaÁ„o -->
+
     <div id="nav-container">
         <ul>
-            <li><a href="Malote SORRI.html">Malote</a></li>
-            <li><a href="Convocacao.html">ConvocaÁıes</a></li>
-            <li><a href="E-Processo.html">E-Processo</a></li>
-	    <li><a href="Siresp.html">SIRESP</a></li>
+            <li><a href="Siresp.html">SIRESP</a></li>
         </ul>
     </div>
 
-    <header class="header">
-        <img src="siresp.png" alt="Logo SIRESP" class="logo">
-    </header>
-    <input type="text" id="searchInput" placeholder="Digite a pesquisa...">
-    <button onclick="searchCSV()">Pesquisar</button>
-    <div id="results"></div>
+    <div class="container">
+        <header class="header">
+            <img src="siresp.png" alt="Logo SIRESP" class="logo">
+        </header>
+
+        <input type="text" id="searchInput" placeholder="Digite a pesquisa...">
+        <button onclick="searchCSV()">Pesquisar</button>
+
+        <div id="results"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
-
